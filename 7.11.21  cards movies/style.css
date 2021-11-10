@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: rgb(209, 206, 206);
+}
+#section{
+    background: rgb(49, 49, 49);
+ }
+ #tach_image{
+     width:150px;
+     height:64px ;
+     margin-left: 100px;
+ }
+ #indi_image{
+     width:150px;
+     height:80px ;
+     margin-left: 55%;
+ }
+ ul a{
+    text-decoration: none;
+    color: black;
+}  
+ul .hover:hover{
+    font-size: larger;
+    filter: drop-shadow(0 0 0.75rem black);
+    
+}
+ nav ul{
+     list-style-type: none;
+     display: flex;
+     justify-content: space-around;
+     height: 100px;
+     background:rgb(180, 170, 170);
+     height:35px;
+ }
+ ul li{
+     color: honeydew;
+     font-size: large;
+ }
+ nav li:hover{
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.article{
+    width: 30%;
+    margin: 10px;
+    background: rgb(49, 49, 49);
+   border-radius: 10px;
+}
+.article img{
+    margin-top: 10px;
+    width: 250px;
+    height: 300px;
+    margin-left: 14%;
+}
+
+.article p{
+    color: wheat;
+ 
+ }
+.article h1{
+    text-align: center;
+   color: wheat;
+   font-family: 'Devonshire', cursive;
+
+}
+.article p{
+    text-align: center;
+}
+.article button{
+    border: none;
+    background: rgb(49, 49, 49);
+    color: wheat;
+    padding: 5px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+   font-family: 'Devonshire', cursive;
+
+}
+.article button:hover{ 
+    opacity: 0.8;
+    background: rgb(194, 192, 192);
+    /* padding: 5px; */
+}
+.span{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px;
+    background: rgb(167, 166, 166);
+}
+#search_by_name{
+    margin-left: 40%;
+}
+#div_select{
+    margin-left: 40%;
+}
+#search_btn{
+    color: wheat;
+    background: rgb(92, 89, 89);
+    border-radius: 5px;
+}
+#sort_btn{
+    color: wheat;
+    background: rgb(92, 89, 89);
+    border-radius: 5px;
+}
+#input{
+    border-radius: 5px;
+}
+#selct{
+    border-radius: 5px;
+
+}
+#middle{
+    width: 420px;
+    background: rgb(230, 190, 190);
+    border: 2px black solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 7px;
+    box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.2);
+}
+#middle img{
+    width: 100px;
+    height: 100px;
+}

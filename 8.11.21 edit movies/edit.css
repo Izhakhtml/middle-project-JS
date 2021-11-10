@@ -1,0 +1,73 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: rgb(209, 206, 206);
+}
+#section{
+    background: rgb(49, 49, 49);
+ }
+ #tach_image{
+    width:150px;
+    height:64px ;
+    margin-left: 100px;
+ }
+ #indi_image{
+    width:150px;
+    height:80px ;
+    margin-left: 55%;
+ }
+ ul a{
+   text-decoration: none;
+   color: black;
+}  
+ul .hover:hover{
+   font-size: larger;
+   filter: drop-shadow(0 0 0.75rem black);
+   
+}
+ nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    background:rgb(180, 170, 170);
+    height:35px;
+ }
+ ul li{
+    color: honeydew;
+    text-align: center;
+ }
+ nav li:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+ }
+ #btn{
+    /* position: absolute;
+    left: 550px; */
+   color: wheat;
+   background: rgb(92, 89, 89);
+  /* border: 2px black solid  ; */
+  border-radius: 5px;
+  margin-top: 10px;
+} 
+#form{
+    margin-top: 5px;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center; 
+    flex-direction: column;
+    align-items: center;
+    background: wheat;
+    position: absolute;
+    padding: 10px;
+    right: 330px;
+   background: rgb(92, 89, 89);
+   color: wheat;
+   border-radius: 5px;
+   font-family: 'Devonshire', cursive;
+ }
+.input{ 
+   width: 300px;
+   border-radius: 5px;
+ }
