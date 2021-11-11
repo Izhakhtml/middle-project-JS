@@ -137,3 +137,17 @@ ul .hover:hover{
 #middle h5{
     color:wheat;
 }
+#footerImg{
+    display: flex;
+    flex-wrap: wrap;
+    height: 200px;
+  
+}
+#footerImg li  img{
+   width: 100px;
+   height: 50px;
+}
+#bottomBar{
+    position: relative;
+    top: 200px;
+}

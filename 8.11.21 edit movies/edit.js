@@ -21,64 +21,57 @@ class Movie{
     this.rating=rating
     }
 }
-// btn_join.onclick = (e)=>{
-// e.preventDefault()
-// let createObject = new Movie(name_input.value,image_input.value,link_input.value,synopsis_input.value,rating_input.value)
-// console.log(createObject);
-// // getNewObject() 
-// // .then((res)=>{res.push(createObject)})
-// let option = {
-//     method:'POST',
-//     body:JSON.stringify({createObject}),
-//     headers:{'Content-Type': 'application/json'}
-// }
-// console.log(option);
-//     getNewObject(url,option)
-//     .then((res)=>{
-//     console.log(res);
-// })
-// async function getNewObject() {
-//     try {
-//         return await fetch(url,option)
-//         .then( response=>response.json())
-//         // return await arrayApi
-//     } catch (error) {
-//         return error
-//     }
-// }
-// getNewObject()
-// .then((res)=>{console.log(res);})
-// .catch((rej)=>{console.log(rej);})
-// }
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    let movie =  new Movie (movieName.value,moviesPicture.value,moviesLink.value,movieSynopsis.value,movieRating.value)
-
-    let options = {
-        method: 'POST',
-        body: JSON.stringify({movie}),
-        headers:{
-         'Content-Type':'application/json'
-        }
-    }
-    
-    // let postUrl = 'https://moviesmern.herokuapp.com/movies/saveMovie';                                                 
-    
-    let sendDataToApi = async () => {
-        try{
-            return await fetch(url,options)
-             .then(res => res.json())
-        }
-        catch(err){
-            return err;
-        }
-    }
-
-    sendDataToApi()
-     .then(data => console.log(data));
-
+btn_join.onclick = (e)=>{
+e.preventDefault()
+let movie = new Movie(movieName.value,moviesPicture.value,moviesLink.value,movieSynopsis.value,movieRating.value)
+console.log(movie);
+let option = {
+    method:'POST',
+    body:JSON.stringify({movie}),
+    headers:{'Content-Type': 'application/json'}
+}
+console.log(option);
+    getNewObject(url,option)
+    .then((res)=>{
+    console.log(res);
 })
+async function getNewObject() {
+    try {
+        return await fetch(url,option)
+        .then( response=>response.json())
+        // return await arrayApi
+    } catch (error) {
+        return error
+    }
+}
+getNewObject()
+.then((res)=>{console.log(res);})
+.catch((rej)=>{console.log(rej);})
+}
+
+// form.addEventListener("submit", (e) => {
+//     e.preventDefault();
+//     let movie =  new Movie (movieName.value,moviesPicture.value,moviesLink.value,movieSynopsis.value,movieRating.value)
+//     let options = {
+//         method: 'POST',
+//         body: JSON.stringify({movie}),
+//         headers:{
+//          'Content-Type':'application/json'
+//         }
+//     }
+//     // let postUrl = 'https://moviesmern.herokuapp.com/movies/saveMovie';                                                 
+//     let sendDataToApi = async () => {
+//         try{
+//             return await fetch(url,options)
+//              .then(res => res.json())
+//         }
+//         catch(err){
+//             return err;
+//         }
+//     }
+//     sendDataToApi()
+//      .then(data => console.log(data));
+// })
 
 
 

@@ -6,46 +6,67 @@ let url = 'http://moviesmern.herokuapp.com/movies/all'
 let nameUrl = 'http://moviesmern.herokuapp.com/movies/movie/searchByName'
 let idUrl = 'http://moviesmern.herokuapp.com/movies/movie'
 let deleteUrl = 'http://moviesmern.herokuapp.com/movies/movie'
+function showLoading() {
+container.innerHTML = `<center><img id="imageLoading" src="https://d2o2d07mcokwyq.cloudfront.net/app/uploads/2020/09/08145740/Domcake-Dancing-Alien.gif"></center>`
+}
+function hideLoading() {
+    imageLoading.style.display = 'none'
+}
 //!  all movies url !\\
 async function presentMoviesOnPage() {
     try {
+        showLoading()
         return await fetch(url)
         .then(response => response.json())
         // return await arrayApi
     } catch (error) {
         return error
     }
+    finally{
+        hideLoading()
+    }
 }
 //!  name url !\\
 async function showDetails(api,name) {
     try {
-        // return await fetch(`${api}/${name}`)
-        // .then(response => response.json())
-        return await arrayApi
+        showLoading()
+        return await fetch(`${api}/${name}`)
+        .then(response => response.json())
+        // return await arrayApi
     } catch (error) {
        return error 
+    }
+    finally{
+        hideLoading()
     }
 }
 //!  id url !\\   
 async function showDetailsById(api,id) {
     try {
+        showLoading()
         return await fetch(`${api}/${id}`)
         .then(response => response.json())
         // return arrayApi
     } catch (error) {
        return error 
     }
+    finally{
+        hideLoading()
+    }
 }
 //! delete movie by id url !\\   
-async function deleteDetailsById() {
+async function deleteDetailsById(api,id,option) {
     try {
-        // return await fetch(`${api}/${id}`,option)
-        // .then(response => response.json())
-        // .then((res)=>{
-        // console.log(res);})
-        return await arrayApi
+        showLoading()
+        return await fetch(`${api}/${id}`,option)
+        .then(response => response.json())
+        .then((res)=>{
+        console.log(res);})
     } catch (error) {
        return error 
+    }
+    finally{
+        hideLoading()
     }
 }
 //! present movies on page !\\
@@ -53,7 +74,7 @@ let counter = 0
 presentMoviesOnPage()
 .then((res)=>{
 for (const iterator of res.data) {
-    // console.log(`${iterator}${counter++}`);
+    console.log(`${iterator}${counter++}`);
 if (iterator.movieName != undefined && iterator.image != undefined) {
 container.innerHTML +=`
  <article class="article">
@@ -63,7 +84,6 @@ container.innerHTML +=`
     <span class ="span">
     <button onclick = getMovieDetails("${iterator._id}")>LEARN MORE</button>
     <button onclick = deleteMovie("${iterator._id}")>DELETE</button>
-    <button>EDIT</button>
     </span>
 </article>`
 }
@@ -76,7 +96,6 @@ else{
        <span class ="span">
        <button onclick = getMovieDetails("${iterator._id}")>LEARN MORE</button>
        <button onclick = deleteMovie("${iterator._id}")>DELETE</button>
-       <button>EDIT</button>
        </span>
    </article>`
 }
@@ -139,28 +158,10 @@ showDetailsById(idUrl,getId)
 }
 //!  search by name !\\ 
 function searchByName(inputName) {
-showDetails()
-.then((res)=>{
-    for (const iterator of res) {
-    if (iterator.movieName==inputName) {
-        container.innerHTML =`
-         <article class="article">
-            <img src="${iterator.image}">
-            <h1 class="h1">${iterator.movieName}</h1>
-            <p>${iterator.rating}</p>
-            <span class ="span">
-            <button>LEARN MORE</button>
-            <button>DELETE</button>
-            <button>EDIT</button>
-            </span>
-        </article>`
-        }
-    }
-})
-//////////////////////! by api
-//     showDetails(nameUrl,input)
-//     .then((res)=>{  
-//     for (const iterator of res.data) {
+// showDetails()
+// .then((res)=>{
+//     for (const iterator of res) {
+//     if (iterator.movieName==inputName) {
 //         container.innerHTML =`
 //          <article class="article">
 //             <img src="${iterator.image}">
@@ -173,7 +174,25 @@ showDetails()
 //             </span>
 //         </article>`
 //         }
+//     }
 // })
+//////////////////////! by api
+    showDetails(nameUrl,inputName)
+    .then((res)=>{  
+    for (const iterator of res.data) {
+        container.innerHTML =`
+         <article class="article">
+            <img src="${iterator.image}">
+            <h1 class="h1">${iterator.movieName}</h1>
+            <p>${iterator.rating}</p>
+            <span class ="span">
+            <button>LEARN MORE</button>
+            <button>DELETE</button>
+            <button>EDIT</button>
+            </span>
+        </article>`
+        }
+})
 .catch((rej)=>{container.innerHTML = rej})  
 }
 search_btn.onclick=()=>{
@@ -185,25 +204,25 @@ searchByName(input.value)
 function deleteMovie(deletId) {
 ////////////////! by json
 let confirmMessage = confirm("Are you sure that you want delete movie?")
-    if (confirmMessage) {
-    deleteDetailsById()
-    .then((res)=>{
-        for (const iterator of res) {
-             if (iterator._id == deletId) {
-                res.splice(iterator,1) 
-                console.log(iterator);
-            }
-        }
-    })
-}
-//////////////! by api
-//     if (confirmMessage) {  
-//     alert("The movie has been successfully deleted")
-//     let option = {
-//         method:"DELETE"
-//     }
-//     deleteDetailsById(deleteUrl,deletId,option)
+//     if (confirmMessage) {
+//     deleteDetailsById()
+//     .then((res)=>{
+//         for (const iterator of res) {
+//              if (iterator._id == deletId) {
+//                 res.splice(iterator,1) 
+//                 console.log(iterator);
+//             }
+//         }
+//     })
 // }
+//////////////! by api
+     if (confirmMessage) {  
+     alert("The movie has been successfully deleted")
+     let option = {
+         method:"DELETE"
+     }
+     deleteDetailsById(deleteUrl,deletId,option)
+ }
 } 
 //! sort by parmmatrs !\\
 function sortByParamter(item) {
