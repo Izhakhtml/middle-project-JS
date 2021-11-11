@@ -120,7 +120,7 @@ ul .hover:hover{
 }
 #middle{
     width: 420px;
-    background: rgb(230, 190, 190);
+    background: rgb(70, 69, 69);
     border: 2px black solid;
     border-radius: 10px;
     padding: 10px;
@@ -130,4 +130,10 @@ ul .hover:hover{
 #middle img{
     width: 100px;
     height: 100px;
+}
+#middle h1{
+    color:wheat;
+}
+#middle h5{
+    color:wheat;
 }

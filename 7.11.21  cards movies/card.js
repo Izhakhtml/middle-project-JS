@@ -111,15 +111,13 @@ function getMovieDetails(getId) {
 //                     <h5>${iterator.date}</h5>
 //                 </article>  ` 
 //        }
-
 //     }
 // })
 //////////////////////! by api
 showDetailsById(idUrl,getId)
 .then((res)=>{
     container.innerHTML =
-     `
-        <article id="middle">
+     `  <article id="middle">
                   <h1>name</h1>
             <h5>${res.data.movieName}</h5>
                   <h1>image</h1>
@@ -181,6 +179,8 @@ showDetails()
 search_btn.onclick=()=>{
 searchByName(input.value)
 }
+
+
 //! delete movie !\\
 function deleteMovie(deletId) {
 ////////////////! by json
