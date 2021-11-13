@@ -30,11 +30,6 @@ let option = {
     body:JSON.stringify({movie}),
     headers:{'Content-Type': 'application/json'}
 }
-console.log(option);
-    getNewObject(url,option)
-    .then((res)=>{
-    console.log(res);
-})
 async function getNewObject() {
     try {
         return await fetch(url,option)
