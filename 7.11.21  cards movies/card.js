@@ -19,9 +19,9 @@ async function presentMoviesOnPage() {
 //!  name url !\\
 async function showDetails(api,name) {
     try {
-        // return await fetch(`${api}/${name}`)
-        // .then(response => response.json())
-        return await arrayApi
+        return await fetch(`${api}/${name}`)
+        .then(response => response.json())
+        // return await arrayApi
     } catch (error) {
        return error 
     }
@@ -39,11 +39,11 @@ async function showDetailsById(api,id) {
 //! delete movie by id url !\\   
 async function deleteDetailsById() {
     try {
-        // return await fetch(`${api}/${id}`,option)
-        // .then(response => response.json())
-        // .then((res)=>{
-        // console.log(res);})
-        return await arrayApi
+        return await fetch(`${api}/${id}`,option)
+        .then(response => response.json())
+        .then((res)=>{
+        console.log(res);})
+        // return await arrayApi
     } catch (error) {
        return error 
     }
@@ -139,28 +139,10 @@ showDetailsById(idUrl,getId)
 }
 //!  search by name !\\ 
 function searchByName(inputName) {
-showDetails()
-.then((res)=>{
-    for (const iterator of res) {
-    if (iterator.movieName==inputName) {
-        container.innerHTML =`
-         <article class="article">
-            <img src="${iterator.image}">
-            <h1 class="h1">${iterator.movieName}</h1>
-            <p>${iterator.rating}</p>
-            <span class ="span">
-            <button>LEARN MORE</button>
-            <button>DELETE</button>
-            <button>EDIT</button>
-            </span>
-        </article>`
-        }
-    }
-})
-//////////////////////! by api
-//     showDetails(nameUrl,input)
-//     .then((res)=>{  
-//     for (const iterator of res.data) {
+// showDetails()
+// .then((res)=>{
+//     for (const iterator of res) {
+//     if (iterator.movieName==inputName) {
 //         container.innerHTML =`
 //          <article class="article">
 //             <img src="${iterator.image}">
@@ -173,7 +155,25 @@ showDetails()
 //             </span>
 //         </article>`
 //         }
+//     }
 // })
+//////////////////////! by api
+    showDetails(nameUrl,inputName)
+    .then((res)=>{  
+    for (const iterator of res.data) {
+        container.innerHTML =`
+         <article class="article">
+            <img src="${iterator.image}">
+            <h1 class="h1">${iterator.movieName}</h1>
+            <p>${iterator.rating}</p>
+            <span class ="span">
+            <button>LEARN MORE</button>
+            <button>DELETE</button>
+            <button>EDIT</button>
+            </span>
+        </article>`
+        }
+})
 .catch((rej)=>{container.innerHTML = rej})  
 }
 search_btn.onclick=()=>{
@@ -184,26 +184,26 @@ searchByName(input.value)
 //! delete movie !\\
 function deleteMovie(deletId) {
 ////////////////! by json
-let confirmMessage = confirm("Are you sure that you want delete movie?")
-    if (confirmMessage) {
-    deleteDetailsById()
-    .then((res)=>{
-        for (const iterator of res) {
-             if (iterator._id == deletId) {
-                res.splice(iterator,1) 
-                console.log(iterator);
-            }
-        }
-    })
-}
-//////////////! by api
-//     if (confirmMessage) {  
-//     alert("The movie has been successfully deleted")
-//     let option = {
-//         method:"DELETE"
-//     }
-//     deleteDetailsById(deleteUrl,deletId,option)
+// let confirmMessage = confirm("Are you sure that you want delete movie?")
+//     if (confirmMessage) {
+//     deleteDetailsById()
+//     .then((res)=>{
+//         for (const iterator of res) {
+//              if (iterator._id == deletId) {
+//                 res.splice(iterator,1) 
+//                 console.log(iterator);
+//             }
+//         }
+//     })
 // }
+//////////////! by api
+     if (confirmMessage) {  
+     alert("The movie has been successfully deleted")
+     let option = {
+         method:"DELETE"
+     }
+     deleteDetailsById(deleteUrl,deletId,option)
+ }
 } 
 //! sort by parmmatrs !\\
 function sortByParamter(item) {
