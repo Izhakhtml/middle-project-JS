@@ -52,22 +52,23 @@ ul .hover:hover{
   margin-top: 10px;
 } 
 #form{
-    margin-top: 5px;
-    display: flex; 
-    flex-wrap: wrap;
-    justify-content: center; 
-    flex-direction: column;
-    align-items: center;
-    background: wheat;
-    position: absolute;
-    padding: 10px;
-    right: 330px;
+   margin-top: 5px;
+   display: flex; 
+   flex-wrap: wrap;
+   justify-content: center; 
+   flex-direction: column;
+   align-items: center;
+   background: wheat;
+   position: relative;
+   padding: 10px;
+
    background: rgb(92, 89, 89);
    color: wheat;
    border-radius: 5px;
    font-family: 'Devonshire', cursive;
  }
 .input{ 
-   width: 300px;
+   width: 500px;
    border-radius: 5px;
+   height: 60px;
  }
