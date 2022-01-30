@@ -25,10 +25,7 @@ async function presentMoviesOnPage() {
 //!  name url !\\
 async function showDetails(api,name) {
     try {
-<<<<<<< HEAD
-=======
         showLoading()
->>>>>>> e67c6589bd95d146010bf3dce6203d8844951116
         return await fetch(`${api}/${name}`)
         .then(response => response.json())
         // return await arrayApi
@@ -56,18 +53,12 @@ async function showDetailsById(api,id) {
 //! delete movie by id url !\\   
 async function deleteDetailsById(api,id,option) {
     try {
-<<<<<<< HEAD
-=======
         showLoading()
->>>>>>> e67c6589bd95d146010bf3dce6203d8844951116
         return await fetch(`${api}/${id}`,option)
         .then(response => response.json())
         .then((res)=>{
         console.log(res);})
-<<<<<<< HEAD
         // return await arrayApi
-=======
->>>>>>> e67c6589bd95d146010bf3dce6203d8844951116
     } catch (error) {
        return error 
     }
@@ -133,7 +124,6 @@ presentMoviesOnPage()
 
 //!  search by name !\\ 
 function searchByName(inputName) {
-<<<<<<< HEAD
 // showDetails()
 // .then((res)=>{
 //     for (const iterator of res) {
@@ -169,10 +159,8 @@ function searchByName(inputName) {
         </article>`
         }
 })
-=======
 showDetails(nameUrl,inputName)
 .then((res)=>{separateMovie(res)})
->>>>>>> e67c6589bd95d146010bf3dce6203d8844951116
 .catch((rej)=>{container.innerHTML = rej})  
 }
 //! 
@@ -182,7 +170,6 @@ searchByName(inputName.value)
 
 //! delete movie !\\
 function deleteMovie(deletId) {
-<<<<<<< HEAD
 ////////////////! by json
 // let confirmMessage = confirm("Are you sure that you want delete movie?")
 //     if (confirmMessage) {
@@ -197,9 +184,7 @@ function deleteMovie(deletId) {
 //     })
 // }
 //////////////! by api
-=======
 let confirmMessage = confirm("Are you sure that you want delete movie?")
->>>>>>> e67c6589bd95d146010bf3dce6203d8844951116
      if (confirmMessage) {  
      alert("The movie has been successfully deleted")
      let option = {
@@ -207,10 +192,7 @@ let confirmMessage = confirm("Are you sure that you want delete movie?")
      }
      deleteDetailsById(deleteUrl,deletId,option)
  }
-<<<<<<< HEAD
-=======
 
->>>>>>> e67c6589bd95d146010bf3dce6203d8844951116
 } 
 
 //! update Details !\\
