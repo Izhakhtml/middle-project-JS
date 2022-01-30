@@ -3,13 +3,28 @@
 // const arrayApi = ObjApi.data;
 // console.log(arrayApi);
 let url = `http://moviesmern.herokuapp.com/movies/all`
+<<<<<<< HEAD
 async function presentMoviesInTable() {
     try {
+=======
+function showLoading() {
+    container.innerHTML = `<center><img id="imageLoading" src="https://d2o2d07mcokwyq.cloudfront.net/app/uploads/2020/09/08145740/Domcake-Dancing-Alien.gif"></center>`
+}
+function hideLoading() {
+    imageLoading.style.display = 'none'
+}
+async function presentMoviesInTable() {
+    try {
+        showLoading()
+>>>>>>> e67c6589bd95d146010bf3dce6203d8844951116
         return await fetch(url)
         .then(response => response.json())
         // return await arrayApi
     } catch (error) {
         return error
+    }
+    finally{
+        hideLoading()
     }
 }
 presentMoviesInTable()

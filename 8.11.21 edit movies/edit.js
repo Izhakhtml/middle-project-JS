@@ -23,6 +23,7 @@ class Movie{
 }
 btn_join.onclick = (e)=>{
 e.preventDefault()
+<<<<<<< HEAD
 let createObject = new Movie(name_input.value,image_input.value,link_input.value,synopsis_input.value,rating_input.value)
 console.log(createObject);
 // getNewObject() 
@@ -37,6 +38,15 @@ console.log(option);
     .then((res)=>{
     console.log(res);
 })
+=======
+let movie = new Movie(movieName.value,moviesPicture.value,moviesLink.value,movieSynopsis.value,movieRating.value)
+console.log(movie);
+let option = {
+    method:'POST',
+    body:JSON.stringify({movie}),
+    headers:{'Content-Type': 'application/json'}
+}
+>>>>>>> e67c6589bd95d146010bf3dce6203d8844951116
 async function getNewObject() {
     try {
         return await fetch(url,option)
